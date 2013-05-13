@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
+</h:head>
+<h:body>
+	<center>
+		<div>
+			<h:messages></h:messages>
+		</div>
+		<h:form>  
+  			<p:dataTable var="portfolio" value="#{portfolioCommitted.portfolio}" >  
+		        <p:column id="CMCCommitmentNumberHeader" sortBy="#{portfolio.CMCCommitmentNumber}" title="CMC Commitment Number">  
+		            <f:facet name="header"> 
+		            	<h:panelGrid> 
+		            		<h:outputText size="12" value="CMC Commit" 
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;" />  
+							<h:outputText size="12" value="Number"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;" />  
+		            	</h:panelGrid>
+		            </f:facet>  
+		            <h:outputText value="#{portfolio.CMCCommitmentNumber}" 
+		            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+		        </p:column>  
+		  
+		        <p:column sortBy="#{portfolio.commitmentDate}">  
+		            <f:facet name="header">  
+		            	<h:panelGrid> 
+		            		<h:outputText size="12" value="Commit"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+		               	 	<h:outputText size="12" value="Date"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+		            	</h:panelGrid>
+		            </f:facet>  
+		            <h:outputText value="#{portfolio.commitmentDate}" 
+		            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+		        </p:column>  
+		  
+		        <p:column sortBy="#{portfolio.expirationDate}">  
+		            <f:facet name="header">
+		            	<h:panelGrid>   
+		                	<h:outputText value="Expiration" 
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;"/>  
+		                	<h:outputText value="Date" 
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;"/>  
+		            	</h:panelGrid>
+		            </f:facet>  
+		            <h:outputText value="#{portfolio.expirationDate}"
+		            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+		        </p:column>  
+		  
+		        <p:column sortBy="#{portfolio.originalBalance}">  
+		            <f:facet name="header"> 
+		            	<h:panelGrid>  
+		                	<h:outputText value="Original"
+							style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />   
+							<h:outputText value="Balance"
+							style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" /> 
+		            	</h:panelGrid>
+		            </f:facet>  
+		            <h:outputText value="#{portfolio.originalBalance}"
+		            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" /> 
+		        </p:column>  
+		        
+		        <p:column sortBy="#{portfolio.currentBalance}">  
+		            <f:facet name="header"> 
+		            	<h:panelGrid> 
+		                	<h:outputText value="Current"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />    
+		                	<h:outputText value="Balance"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+		            	</h:panelGrid>
+		            </f:facet>  
+		            <h:outputText value="#{portfolio.currentBalance}" 
+		            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+		        </p:column> 
+		        
+		        <p:column sortBy="#{portfolio.remainingDays}">  
+		            <f:facet name="header"> 
+		            	<h:panelGrid> 
+		                	<h:outputText value="Days"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />    
+		                	<h:outputText value="Remain"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+		            	</h:panelGrid>
+		            </f:facet>  
+		            <h:outputText value="#{portfolio.remainingDays}" 
+		            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+		        </p:column> 
+		        
+		        <p:column sortBy="#{portfolio.currentStatus}">  
+		            <f:facet name="header"> 
+		            	<h:panelGrid> 
+		                	<h:outputText value="Current"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />    
+		                	<h:outputText value="Status"
+		                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+		            	</h:panelGrid>
+		            </f:facet>  
+		            <h:outputText value="#{portfolio.currentStatus}" 
+		            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+		        </p:column> 
+		        
+    		</p:dataTable>  
+		</h:form>  
+	</center>
+</h:body>
+</html>

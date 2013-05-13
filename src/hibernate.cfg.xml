@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.datasource">java:comp/env/jdbc/MsrProcessDB</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+		<property name="show_sql">true</property>
+
+		<!-- Register Entity Classes here -->
+		<mapping class="com.capmkts.msrprocess.data.CommitmentData" />
+		<mapping class="com.capmkts.msrprocess.data.AgencyCommitmentLetter" />
+		<mapping class="com.capmkts.msrprocess.data.CommitmentDataInElgState" />
+		<mapping class="com.capmkts.msrprocess.data.PatronCompany" />
+		<mapping class="com.capmkts.msrprocess.data.CMCCommitNumber" />
+		<mapping class="com.capmkts.msrprocess.data.CMCAgencyCommitmentNumber" />
+		<mapping class="com.capmkts.msrprocess.data.CMCFile" />
+		<mapping class="com.capmkts.msrprocess.data.Holiday" />
+		<mapping class="com.capmkts.msrprocess.data.User" />
+
+		<!-- Servicing Entity Classes here -->
+		<mapping class="com.capmkts.msrprocess.data.CreditData" />
+		<mapping class="com.capmkts.msrprocess.data.CreditDataManualCheck" />
+		<mapping class="com.capmkts.msrprocess.data.AgencyPurchAdvices" />
+		<mapping class="com.capmkts.msrprocess.data.AgencyPurchAdvicesManualCheck" />
+		<mapping class="com.capmkts.msrprocess.data.Pricing" />
+		<mapping class="com.capmkts.msrprocess.data.RefProgram" />
+		<mapping class="com.capmkts.msrprocess.data.CountyCode" />	
+		<mapping class="com.capmkts.msrprocess.data.CommitmentDataSummary" />	
+		<mapping class="com.capmkts.msrprocess.data.AgencyCommitDetails" />
+		<mapping class="com.capmkts.msrprocess.data.ServRateSheets" />
+		
+
+		
+	</session-factory>
+</hibernate-configuration>

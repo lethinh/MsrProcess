@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
+</h:head>
+<h:body>
+	<center>
+		<div>
+			<h:messages></h:messages>
+		</div>
+		<h:form>  
+  
+    <p:dataTable var="docs" value="#{docsReceived.docs}">  
+        <p:column id="CMCCommitmentNumberHeader" sortBy="#{docs.CMCCommitmentNumber}">  
+            <f:facet name="header"> 
+            	<h:panelGrid> 
+            		<h:outputText size="12" value="CMC Commitment"
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;" />  
+					<h:outputText size="12" value="Number"
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;" />  
+            	</h:panelGrid>
+            </f:facet>  
+            <h:outputText value="#{docs.CMCCommitmentNumber}"
+            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+        </p:column>  
+  
+        <p:column sortBy="#{docs.acl}">  
+            <f:facet name="header">  
+            	<h:panelGrid> 
+            		<h:outputText size="12" value="Agency Commitment"
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+               	 	<h:outputText size="12" value="Letter"
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+            	</h:panelGrid>
+            </f:facet>  
+            <h:outputText value="#{docs.acl}" 
+            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+        </p:column>  
+  
+        <p:column sortBy="#{docs.commitmentRequest}">  
+            <f:facet name="header">
+            	<h:panelGrid>   
+                	<h:outputText value="Commitment" 
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;"/>  
+                	<h:outputText value="Request" 
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;"/>  
+            	</h:panelGrid>
+            </f:facet>  
+            <h:outputText value="#{docs.commitmentRequest}"
+            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />  
+        </p:column>  
+  
+        <p:column sortBy="#{docs.servicingData}">  
+            <f:facet name="header"> 
+            	<h:panelGrid>  
+                	<h:outputText value="Servicing"
+					style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />   
+					<h:outputText value="Data"
+					style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" /> 
+            	</h:panelGrid>
+            </f:facet>  
+            <h:outputText value="#{docs.servicingData}"
+            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" /> 
+        </p:column>  
+        
+        <p:column sortBy="#{docs.pa}">  
+            <f:facet name="header"> 
+            	<h:panelGrid> 
+                	<h:outputText value="Agency Purchase"
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />    
+                	<h:outputText value="Advice"
+                	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+            	</h:panelGrid>
+            </f:facet>  
+            <h:outputText value="#{docs.pa}" 
+            	style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px;" />
+        </p:column> 
+   
+    </p:dataTable>  
+  
+</h:form>  
+	</center>
+</h:body>
+</html>

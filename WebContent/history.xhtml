@@ -1,0 +1,268 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
+	<script type="text/javascript" language="javascript">
+            function loadRel(){
+                document.getElementById('portfolios').load();
+            }
+        </script>  
+</h:head>
+<h:body scroll="no">
+	<center>
+		<div>
+			<h:messages></h:messages>
+		</div>
+		
+		<h:form id="form" autoUpdate="true">
+			<p:growl id="growl" showDetail="true"/> 
+   			 <p:tabView effect="fade" effectDuration="normal" style="font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">
+				<p:tab title="CMC Commit Letters" >
+				    <p:panel id="panel">
+		    <p:dataTable id="portfolios" var="portfolio" value="#{fileDownload.portfolioModel}" paginator="true" rows="10"  
+		                 selection="#{fileDownload.selectedPortfolio}" rowKey="#{portfolio.CMCCommitmentNumber}" selectionMode="single">  
+		  
+		  <!--  <p:ajax event="rowSelect" listener="#{extension.onRowSelect}"   
+                    update=":form:displayMulti :form:panel :form:growl" oncomplete="multiPortfolioDialog.show()" />  
+        <p:ajax event="rowUnselect" listener="#{extension.onRowUnselect}"  update=":form:displayMulti :form:panel :form:growl" oncomplete="multiPortfolioDialog.show()"/>  
+   -->
+		 		
+		        <p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+		            <f:facet name="header">
+       					<h:panelGrid columns="1">
+            				<h:outputText value="CMC" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            				<h:outputText value="Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        				</h:panelGrid>
+    				</f:facet> 
+		            #{portfolio.CMCCommitmentNumber}
+		        </p:column>   
+		  
+		  		<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+		            <f:facet name="header">
+       					<h:panelGrid columns="1">
+            				<h:outputText value="Agency" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            				<h:outputText value="Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        				</h:panelGrid>
+    				</f:facet> 
+		            #{portfolio.agencyCommitmentNumber}
+		        </p:column>
+		  
+		        <p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            <f:facet name="header">
+       					<h:panelGrid columns="1">
+            				<h:outputText value="Commit" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            				<h:outputText value="Date" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        				</h:panelGrid>
+    				</f:facet> 
+		            #{portfolio.commitmentDate}
+		        </p:column>  
+		  
+		        <p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            <f:facet name="header">
+       					<h:panelGrid columns="1">
+            				<h:outputText value="Expiration" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            				<h:outputText value="Date" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        				</h:panelGrid>
+    				</f:facet> 
+		            #{portfolio.expirationDate} 
+		        </p:column>  
+		        
+		        <p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            <f:facet name="header">
+       					<h:panelGrid columns="1">
+            				<h:outputText value="Original" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            				<h:outputText value="Balance" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        				</h:panelGrid>
+    				</f:facet> 
+		            #{portfolio.originalBalance}
+		        </p:column>  
+		        
+		        <p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            <f:facet name="header">
+       					<h:panelGrid columns="1">
+            				<h:outputText value="Current" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            				<h:outputText value="Balance" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        				</h:panelGrid>
+    				</f:facet> 
+		            #{portfolio.currentBalance} 
+		        </p:column>  
+		        
+		        <p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">
+		        	<f:facet name="header">
+       					<h:panelGrid columns="1">
+            				<h:outputText value="Days" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            				<h:outputText value="Remain" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        				</h:panelGrid>
+    				</f:facet> 
+		            #{portfolio.remainingDays}  
+		        </p:column> 
+		       
+				
+		    </p:dataTable>  
+		  	 </p:panel> 
+		  	 <p:dialog id="dialog" header="Extension Request Confirmation" widgetVar="multiPortfolioDialog" resizable="false"  
+		              showEffect="fade" hideEffect="fade">  
+		  
+		     <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+  
+          
+		    </p:dialog>
+				</p:tab>
+				<p:tab title="Agency Commit Letters">  
+					<p:panel id="panel2">
+			    		<p:dataTable id="portfolios2" var="portfolio" value="#{fileDownload.portfolioModel}" paginator="true" rows="10"  
+			                 selection="#{fileDownload.selectedPortfolio}" rowKey="#{portfolio.CMCCommitmentNumber}" selectionMode="single">  
+			 		
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="CMC Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.CMCCommitmentNumber}
+				        	</p:column>   
+				  
+				  			<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+		            			<f:facet name="header">
+       							<h:panelGrid columns="1">
+            						<h:outputText value="Agency" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            						<h:outputText value="Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        						</h:panelGrid>
+    							</f:facet> 
+		           				#{portfolio.agencyCommitmentNumber}
+		       				 </p:column>
+				  
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="File Uploaded" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.agencyCommitmentLetterFileName}
+				        	</p:column>  
+		
+		    			</p:dataTable>  
+		  	 		</p:panel> 
+				</p:tab>
+				<p:tab title="Commitment Requests"> 
+					<p:panel id="panel3">
+			    		<p:dataTable id="portfolios3" var="portfolio" value="#{fileDownload.portfolioModel}" paginator="true" rows="10"  
+			                 selection="#{fileDownload.selectedPortfolio}" rowKey="#{portfolio.CMCCommitmentNumber}" selectionMode="single">  
+			 		
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="CMC Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.CMCCommitmentNumber}
+				        	</p:column>   
+				        	
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+		           				<f:facet name="header">
+       							<h:panelGrid columns="1">
+            						<h:outputText value="Agency" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            						<h:outputText value="Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        						</h:panelGrid>
+    							</f:facet> 
+		          			    #{portfolio.agencyCommitmentNumber}
+		        			</p:column>
+				  
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="File Uploaded" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.commitmentRequestFileName}
+				        	</p:column>  
+		    			</p:dataTable>  
+		  	 		</p:panel> 
+				</p:tab>
+				<p:tab title="Servicing Data">  
+					<p:panel id="panel4">
+			    		<p:dataTable id="portfolios4" var="portfolio" value="#{fileDownload.portfolioModel}" paginator="true" rows="10"  
+			                 selection="#{fileDownload.selectedPortfolio}" rowKey="#{portfolio.CMCCommitmentNumber}" selectionMode="single">  
+			 		
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="CMC Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.CMCCommitmentNumber}
+				        	</p:column>   
+				        	
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+		           				<f:facet name="header">
+       							<h:panelGrid columns="1">
+            						<h:outputText value="Agency" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            						<h:outputText value="Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        						</h:panelGrid>
+    							</f:facet> 
+		          			    #{portfolio.agencyCommitmentNumber}
+		        			</p:column>
+				  
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="File Uploaded" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.servicingDataFileName}
+				        	</p:column>  
+		
+		    			</p:dataTable>  
+		  	 		</p:panel> 
+				</p:tab>
+				<p:tab title="FNMA PA">  
+					<p:panel id="panel5">
+			    		<p:dataTable id="portfolios5" var="portfolio" value="#{fileDownload.portfolioModel}" paginator="true" rows="10"  
+			                 selection="#{fileDownload.selectedPortfolio}" rowKey="#{portfolio.CMCCommitmentNumber}" selectionMode="single">  
+			 		
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="CMC Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.CMCCommitmentNumber}
+				        	</p:column>   
+				        	
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+		           				<f:facet name="header">
+       							<h:panelGrid columns="1">
+            						<h:outputText value="Agency" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+            						<h:outputText value="Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+        						</h:panelGrid>
+    							</f:facet> 
+		          			    #{portfolio.agencyCommitmentNumber}
+		        			</p:column>
+				  
+				        	<p:column style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+				            <f:facet name="header">
+		       					<h:panelGrid columns="1">
+		            				<h:outputText value="File Uploaded" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"/>
+		            			</h:panelGrid>
+		    				</f:facet> 
+				            #{portfolio.paFileName}
+				        	</p:column>  
+		    			</p:dataTable>  
+		  	 		</p:panel>
+				</p:tab>
+			</p:tabView>
+		</h:form> 
+		<script type="text/javascript">  
+			function start() {  
+				statusDialog.show();  
+			}  
+								  
+			function stop() {  
+				statusDialog.hide();  
+			}  
+		</script>  
+	</center>
+</h:body>
+</html>

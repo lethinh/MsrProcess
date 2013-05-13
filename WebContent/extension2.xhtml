@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
+</h:head>
+<h:body>
+	<center>
+		<div>
+			<h:messages></h:messages>
+		</div>
+		<h:form id="form">  
+		    <p:dataTable id="portfolios" var="portfolio" value="#{extension.portfolioModel}" paginator="true" rows="10"  
+		                 selection="#{extension.selectedPortfolios}">  
+		  
+		        <p:column selectionMode="multiple" style="width:12px" />  
+		 		
+		        <p:column headerText="CMC Commit #" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;">  		        
+		            #{portfolio.CMCCommitmentNumber}
+		        </p:column>   
+		  
+		        <p:column headerText="Commit Dt" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            #{portfolio.commitmentDate}
+		        </p:column>  
+		  
+		        <p:column headerText="Exp Dt" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            #{portfolio.expirationDate} 
+		        </p:column>  
+		        
+		        <p:column headerText="Orig Bal" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            #{portfolio.originalBalance}
+		        </p:column>  
+		        
+		        <p:column headerText="Current Bal" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            #{portfolio.currentBalance} 
+		        </p:column>  
+		        
+		        <p:column headerText="Days Remain" style="font-weight: bold; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;"> 
+		            #{portfolio.remainingDays}  
+		        </p:column>  
+		  
+		        <f:facet name="footer">  
+            		<p:commandButton id="viewCommand" value="Request Extension" 
+            		actionListener="#{extendController.processExtendRequest}"
+            		icon="ui-icon-search"  
+                    update=":form"   
+                    oncomplete="multiPortfolioDialog.show()"/>  
+        		</f:facet>  
+		    </p:dataTable>  
+		  
+		    <p:dialog id="dialog" header="Extension Request Confirmation" widgetVar="multiPortfolioDialog" resizable="false"  
+		              showEffect="fade" hideEffect="fade">  
+		  	<div align="center"> 
+		        <h:panelGrid id="displayMulti" columns="2" cellpadding="4">    
+		            <h:outputText value="The selected commitment(s) has been extended." />  
+        			<p:commandButton id="btnConfirmExtension" value="OK"
+        				onclick="multiPortfolioDialog.hide()" type="button" position="center"/>   
+		        </h:panelGrid>  
+		    </div>
+		    </p:dialog>     
+		</h:form>  
+	</center>
+</h:body>
+</html>

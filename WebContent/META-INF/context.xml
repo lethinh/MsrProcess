@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+
+<Resource name="jdbc/MsrProcessDB" auth="Container" type="javax.sql.DataSource"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        url="jdbc:sqlserver://localhost:1433;databaseName=CoIssue_Test;"
+    username="ravi" password="ravi" maxWait="-1" removeAbandoned="true" removeAbandonedTimeout="30"/>
+
+</Context>

@@ -1,0 +1,43 @@
+/*
+Theme Name: Broadside
+Version: 1.0
+Author: ProgressionStudios
+Author URI: http://themeforest.net/user/ProgressionStudios
+*/
+@import url(css/reset.css);
+@import url(css/standard.css);   /*   Main Styles */
+@import url(css/navigation.css);  /*   Navigation Styles */
+@import url(css/orbit-1.2.3.css);   /*   Featured Slider Styles */
+@import url(css/fancybox.css);  /*   LightBox Styles */
+
+/*   MAIN CONTAINER HEIGHT SIZE */
+#container, #left-container, #featured, #featured div { height:600px;  }
+#featured { margin-top:-600px;}  
+#box-container {height:600px;  margin-top:-300px; }  /* Margin-top is half of the total height  */
+
+/* MAIN HIGHLIGHTED COLOUR FOR HEADINGS */
+h1, h2, h3, h4, h5, h6, ul.sub-navigation li a:hover, ul.sub-navigation li.current a, a.prev span, a.next span, a.prev:hover, a.next:hover, .light-fonts .content-heading h5, .light-fonts .content-heading h6 {color:#b8174d;} 
+
+/* MAIN BACKGROUND COLOUR FOR MENU AND LOGO */
+.logo-menu, .navigation-menu, .sf-vertical li, .jspDrag {background-color:#000 opacity:0.8} 
+.sf-menu .current a, .sf-menu a:hover, .sf-menu .current .sliding-element a:hover {background:#000 url(images/nav-arrow.png) 0px 5px no-repeat;} 
+
+	.jqplot-title{
+        color:#FFFFFF;
+    }
+    .jqplot-xaxis-label{
+        color:#FFFFFF; 
+    }
+    .jqplot-yaxis-label{
+        color:#FFFFFF;
+    }
+    .jqplot-xaxis-tick{
+        color:#FFFFFF;
+    }
+    jqplot-yaxis-tick{
+        color:#FFFFFF;
+    }
+
+form .testing {
+	font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 12px; text-align:center;
+}
